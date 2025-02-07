@@ -1,4 +1,4 @@
-unit UFrmPrincipal;
+﻿unit UFrmPrincipal;
 
 interface
 
@@ -32,9 +32,23 @@ uses
 
 type
   TFrmPrincipal = class(TForm)
-    cxImageList1: TcxImageList;
-    PnlEntrar: TPanel;
-    PnlLogin: TPanel;
+    ImgPrincipal: TcxImageList;
+    PnlPrincipal: TPanel;
+    PnlOpcoes: TPanel;
+    BtnNovo: TcxButton;
+    BtnApagar: TcxButton;
+    BtnUpdate: TcxButton;
+    PnlGrid: TPanel;
+    GridCRUDDBTableView1: TcxGridDBTableView;
+    GridCRUDLevel1: TcxGridLevel;
+    GridCRUD: TcxGrid;
+    DataSource1: TDataSource;
+    FDQuery1: TFDQuery;
+    FDConnection1: TFDConnection;
+    Edit2: TEdit;
+    Label1: TLabel;
+    procedure BtnNovoClick(Sender: TObject);
+    procedure BtnApagarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -47,5 +61,19 @@ var
 implementation
 
 {$R *.dfm}
+
+uses UFrmNovo, UFrmApagar;
+
+procedure TFrmPrincipal.BtnApagarClick(Sender: TObject);
+begin
+  Application.CreateForm(TFrmApagar, FrmApagar);
+  FrmApagar.Show;
+end;
+
+procedure TFrmPrincipal.BtnNovoClick(Sender: TObject);
+begin
+  Application.CreateForm(TFrmNovo, FrmNovo);
+  FrmNovo.Show;
+end;
 
 end.
