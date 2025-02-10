@@ -20,7 +20,8 @@ uses
   dxSkinSummer2008, dxSkinTheAsphaltWorld, dxSkinTheBezier,
   dxSkinsDefaultPainters, dxSkinValentine, dxSkinVisualStudio2013Blue,
   dxSkinVisualStudio2013Dark, dxSkinVisualStudio2013Light, dxSkinVS2010,
-  dxSkinWhiteprint, dxSkinXmas2008Blue, cxButtons;
+  dxSkinWhiteprint, dxSkinXmas2008Blue, cxButtons, System.ImageList,
+  Vcl.ImgList, cxImageList;
 
 type
   TFrmApagar = class(TForm)
@@ -29,9 +30,10 @@ type
     Panel3: TPanel;
     Label1: TLabel;
     Edit1: TEdit;
-    cxButton1: TcxButton;
-    cxButton2: TcxButton;
+    BtnConfirmar: TcxButton;
+    BtnCancelar: TcxButton;
     Label2: TLabel;
+    cxImageList1: TcxImageList;
   private
     { Private declarations }
   public
