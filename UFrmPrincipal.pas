@@ -49,6 +49,7 @@ type
     Label1: TLabel;
     procedure BtnNovoClick(Sender: TObject);
     procedure BtnApagarClick(Sender: TObject);
+
   private
     { Private declarations }
   public

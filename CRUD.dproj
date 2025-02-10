@@ -109,11 +109,7 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="UFrmApagar.pas">
-            <Form>´TFrmApagar</Form>
-        </DCCReference>
-        <DCCReference Include="Unit1.pas">
-            <Form>Form1</Form>
-            <FormType>dfm</FormType>
+            <Form>TFrmApagar</Form>
         </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
