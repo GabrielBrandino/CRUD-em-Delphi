@@ -1,9 +1,10 @@
 object FrmAtualizar: TFrmAtualizar
   Left = 0
   Top = 0
+  BorderStyle = bsSingle
   Caption = 'FrmAtualizar'
-  ClientHeight = 353
-  ClientWidth = 443
+  ClientHeight = 363
+  ClientWidth = 453
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -16,21 +17,17 @@ object FrmAtualizar: TFrmAtualizar
   object TPanelPrincipal: TPanel
     Left = 0
     Top = 0
-    Width = 443
-    Height = 353
+    Width = 453
+    Height = 363
     Align = alClient
     Color = 3969340
     ParentBackground = False
     TabOrder = 0
-    ExplicitLeft = 184
-    ExplicitTop = 96
-    ExplicitWidth = 185
-    ExplicitHeight = 41
     object TPanel1: TPanel
       AlignWithMargins = True
       Left = 21
       Top = 4
-      Width = 401
+      Width = 411
       Height = 41
       Margins.Left = 20
       Margins.Right = 20
@@ -38,13 +35,10 @@ object FrmAtualizar: TFrmAtualizar
       Color = 13816530
       ParentBackground = False
       TabOrder = 0
-      ExplicitLeft = 152
-      ExplicitTop = 16
-      ExplicitWidth = 185
       object Label1: TLabel
         Left = 1
         Top = 1
-        Width = 399
+        Width = 409
         Height = 39
         Align = alClient
         Alignment = taCenter
@@ -63,8 +57,8 @@ object FrmAtualizar: TFrmAtualizar
       AlignWithMargins = True
       Left = 21
       Top = 51
-      Width = 401
-      Height = 281
+      Width = 411
+      Height = 291
       Margins.Left = 20
       Margins.Right = 20
       Margins.Bottom = 20
@@ -81,7 +75,7 @@ object FrmAtualizar: TFrmAtualizar
         Caption = 'ID do produto'
       end
       object Label3: TLabel
-        Left = 48
+        Left = 56
         Top = 94
         Width = 91
         Height = 13
@@ -94,32 +88,8 @@ object FrmAtualizar: TFrmAtualizar
         Height = 13
         Caption = 'Quantidade em estoque'
       end
-      object Edit1: TEdit
-        Left = 136
-        Top = 35
-        Width = 121
-        Height = 21
-        TabOrder = 0
-        Text = 'Edit1'
-      end
-      object Edit2: TEdit
-        Left = 32
-        Top = 113
-        Width = 121
-        Height = 21
-        TabOrder = 1
-        Text = 'Edit2'
-      end
-      object Edit3: TEdit
-        Left = 244
-        Top = 113
-        Width = 121
-        Height = 21
-        TabOrder = 2
-        Text = 'Edit3'
-      end
       object BtnConfirmar: TcxButton
-        Left = 64
+        Left = 94
         Top = 216
         Width = 75
         Height = 25
@@ -135,7 +105,7 @@ object FrmAtualizar: TFrmAtualizar
         ParentFont = False
       end
       object BtnCancelar: TcxButton
-        Left = 272
+        Left = 250
         Top = 216
         Width = 75
         Height = 25
@@ -144,15 +114,33 @@ object FrmAtualizar: TFrmAtualizar
         OptionsImage.Images = cxImageList1
         TabOrder = 4
       end
+      object Edit1: TcxDBTextEdit
+        Left = 136
+        Top = 35
+        TabOrder = 0
+        Width = 121
+      end
+      object Edit3: TcxDBTextEdit
+        Left = 250
+        Top = 113
+        TabOrder = 2
+        Width = 121
+      end
+      object Edit2: TcxDBCurrencyEdit
+        Left = 48
+        Top = 113
+        TabOrder = 1
+        Width = 121
+      end
     end
   end
   object cxImageList1: TcxImageList
     SourceDPI = 96
     FormatVersion = 1
-    Left = 397
-    Top = 235
+    Left = 349
+    Top = 211
     Bitmap = {
-      494C010102000800040010001000FFFFFFFF2100FFFFFFFFFFFFFFFF424D3600
+      494C010102000800040010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -288,8 +276,9 @@ object FrmAtualizar: TFrmAtualizar
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
-      00000000000000000000000000000000}
-    DesignInfo = 15401357
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000}
+    DesignInfo = 13828445
     ImageInfo = <
       item
         ImageClass = 'TdxSmartImage'
@@ -336,5 +325,13 @@ object FrmAtualizar: TFrmAtualizar
           2D366C2D362D366C322D326C362C366C362D366C322C326C2D362C364C32342C
           32327A222F3E0D0A093C2F673E0D0A3C2F7376673E0D0A}
       end>
+  end
+  object FDQueryProdutos: TFDQuery
+    Left = 85
+    Top = 203
+  end
+  object DSProdutos: TDataSource
+    Left = 165
+    Top = 203
   end
 end

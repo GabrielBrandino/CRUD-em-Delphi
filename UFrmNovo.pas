@@ -21,30 +21,38 @@ uses
   dxSkinsDefaultPainters, dxSkinValentine, dxSkinVisualStudio2013Blue,
   dxSkinVisualStudio2013Dark, dxSkinVisualStudio2013Light, dxSkinVS2010,
   dxSkinWhiteprint, dxSkinXmas2008Blue, cxButtons, System.ImageList,
-  Vcl.ImgList, cxImageList;
+  Vcl.ImgList, cxImageList, cxControls, cxContainer, cxEdit, cxCurrencyEdit,
+  cxDBEdit, cxTextEdit, FireDAC.Stan.Intf, FireDAC.Stan.Option,
+  FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf,
+  FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt, Data.DB,
+  FireDAC.Comp.DataSet, FireDAC.Comp.Client;
 
 type
   TFrmNovo = class(TForm)
     PnlNovo: TPanel;
     PnlInfoLogin: TPanel;
     Label1: TLabel;
-    Edit1: TEdit;
-    Edit2: TEdit;
-    Edit3: TEdit;
-    Edit4: TEdit;
-    Edit5: TEdit;
     Label2: TLabel;
     Label3: TLabel;
     Label4: TLabel;
     Label5: TLabel;
     Label6: TLabel;
-    Edit6: TEdit;
     Label7: TLabel;
     BtnCadastrar: TcxButton;
     BtnCancelar: TcxButton;
     ImgNovo: TcxImageList;
-    Edit7: TEdit;
     Label8: TLabel;
+    Edit1: TcxDBTextEdit;
+    Edit2: TcxDBTextEdit;
+    Edit4: TcxDBTextEdit;
+    Edit5: TcxDBTextEdit;
+    Edit6: TcxDBTextEdit;
+    Edit7: TcxDBTextEdit;
+    Edit3: TcxDBCurrencyEdit;
+    FDQueryProdutos: TFDQuery;
+    FDQueryFornecedor: TFDQuery;
+    DSProdutos: TDataSource;
+    DSFornecedor: TDataSource;
   private
     { Private declarations }
   public

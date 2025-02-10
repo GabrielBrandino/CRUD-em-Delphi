@@ -1,9 +1,10 @@
 object FrmApagar: TFrmApagar
   Left = 0
   Top = 0
+  BorderStyle = bsSingle
   Caption = 'FrmApagar'
-  ClientHeight = 353
-  ClientWidth = 472
+  ClientHeight = 363
+  ClientWidth = 482
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -16,8 +17,8 @@ object FrmApagar: TFrmApagar
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 472
-    Height = 353
+    Width = 482
+    Height = 363
     Align = alClient
     Color = 3969340
     ParentBackground = False
@@ -26,8 +27,8 @@ object FrmApagar: TFrmApagar
       AlignWithMargins = True
       Left = 21
       Top = 4
-      Width = 430
-      Height = 47
+      Width = 440
+      Height = 57
       Margins.Left = 20
       Margins.Right = 20
       Align = alTop
@@ -39,7 +40,7 @@ object FrmApagar: TFrmApagar
         AlignWithMargins = True
         Left = 4
         Top = 4
-        Width = 422
+        Width = 432
         Height = 24
         Align = alTop
         Alignment = taCenter
@@ -56,8 +57,8 @@ object FrmApagar: TFrmApagar
     object Panel3: TPanel
       AlignWithMargins = True
       Left = 21
-      Top = 57
-      Width = 430
+      Top = 67
+      Width = 440
       Height = 275
       Margins.Left = 20
       Margins.Right = 20
@@ -66,13 +67,16 @@ object FrmApagar: TFrmApagar
       Color = 16053492
       ParentBackground = False
       TabOrder = 1
+      DesignSize = (
+        440
+        275)
       object Label2: TLabel
-        AlignWithMargins = True
-        Left = 4
-        Top = 52
-        Width = 422
+        Left = 109
+        Top = 63
+        Width = 205
         Height = 19
         Alignment = taCenter
+        Anchors = []
         Caption = 'ID do produto a ser apagado'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -80,14 +84,7 @@ object FrmApagar: TFrmApagar
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
-      end
-      object Edit1: TEdit
-        Left = 80
-        Top = 88
-        Width = 273
-        Height = 21
-        TabOrder = 0
-        Text = 'Edit1'
+        ExplicitLeft = 104
       end
       object BtnConfirmar: TcxButton
         Left = 104
@@ -109,15 +106,21 @@ object FrmApagar: TFrmApagar
         OptionsImage.Images = cxImageList1
         TabOrder = 2
       end
+      object Edit1: TcxDBTextEdit
+        Left = 144
+        Top = 88
+        TabOrder = 0
+        Width = 137
+      end
     end
   end
   object cxImageList1: TcxImageList
     SourceDPI = 96
     FormatVersion = 1
-    Left = 429
+    Left = 405
     Top = 289
     Bitmap = {
-      494C010102000800040010001000FFFFFFFF2100FFFFFFFFFFFFFFFF424D3600
+      494C010102000800040010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -253,8 +256,9 @@ object FrmApagar: TFrmApagar
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
-      00000000000000000000000000000000}
-    DesignInfo = 18940333
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000}
+    DesignInfo = 18940309
     ImageInfo = <
       item
         ImageClass = 'TdxSmartImage'
@@ -301,5 +305,21 @@ object FrmApagar: TFrmApagar
           2D366C2D362D366C322D326C362C366C362D366C322C326C2D362C364C32342C
           32327A222F3E0D0A093C2F673E0D0A3C2F7376673E0D0A}
       end>
+  end
+  object FDQueryProdutos: TFDQuery
+    Left = 373
+    Top = 227
+  end
+  object FDQueryFornecedor: TFDQuery
+    Left = 373
+    Top = 163
+  end
+  object DSFornecedor: TDataSource
+    Left = 69
+    Top = 219
+  end
+  object DSProdutos: TDataSource
+    Left = 69
+    Top = 147
   end
 end

@@ -1,9 +1,10 @@
 object FrmPrincipal: TFrmPrincipal
   Left = 0
   Top = 0
+  BorderStyle = bsSingle
   Caption = 'Principial -> [FrmPrincipal]'
-  ClientHeight = 445
-  ClientWidth = 749
+  ClientHeight = 455
+  ClientWidth = 759
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -16,18 +17,20 @@ object FrmPrincipal: TFrmPrincipal
   object PnlPrincipal: TPanel
     Left = 0
     Top = 0
-    Width = 749
-    Height = 445
+    Width = 759
+    Height = 455
     Align = alClient
     Caption = 'Principal -> [PnlPrincipal]'
     Color = 3969340
     ParentBackground = False
     TabOrder = 0
+    ExplicitWidth = 749
+    ExplicitHeight = 445
     object PnlOpcoes: TPanel
       AlignWithMargins = True
       Left = 11
       Top = 11
-      Width = 727
+      Width = 737
       Height = 94
       Margins.Left = 10
       Margins.Top = 10
@@ -37,8 +40,9 @@ object FrmPrincipal: TFrmPrincipal
       Color = 13816530
       ParentBackground = False
       TabOrder = 0
+      ExplicitWidth = 727
       DesignSize = (
-        727
+        737
         94)
       object Label1: TLabel
         Left = 584
@@ -50,7 +54,7 @@ object FrmPrincipal: TFrmPrincipal
       object BtnNovo: TcxButton
         Left = 40
         Top = 23
-        Width = 103
+        Width = 113
         Height = 49
         Anchors = [akLeft, akTop, akRight, akBottom]
         Caption = 'Novo'
@@ -58,11 +62,12 @@ object FrmPrincipal: TFrmPrincipal
         OptionsImage.Images = ImgPrincipal
         TabOrder = 0
         OnClick = BtnNovoClick
+        ExplicitWidth = 103
       end
       object BtnApagar: TcxButton
         Left = 208
         Top = 23
-        Width = 103
+        Width = 113
         Height = 49
         Anchors = [akLeft, akTop, akRight, akBottom]
         Caption = 'Apagar'
@@ -70,11 +75,12 @@ object FrmPrincipal: TFrmPrincipal
         OptionsImage.Images = ImgPrincipal
         TabOrder = 1
         OnClick = BtnApagarClick
+        ExplicitWidth = 103
       end
       object BtnUpdate: TcxButton
         Left = 392
         Top = 23
-        Width = 103
+        Width = 113
         Height = 49
         Anchors = [akLeft, akTop, akRight, akBottom]
         Caption = 'Atualizar'
@@ -82,22 +88,21 @@ object FrmPrincipal: TFrmPrincipal
         OptionsImage.Images = ImgPrincipal
         TabOrder = 2
         OnClick = BtnUpdateClick
+        ExplicitWidth = 103
       end
-      object Edit2: TEdit
+      object Edit2: TcxDBTextEdit
         Left = 568
         Top = 42
-        Width = 121
-        Height = 21
         TabOrder = 3
-        Text = 'Edit2'
+        Width = 121
       end
     end
     object PnlGrid: TPanel
       AlignWithMargins = True
       Left = 21
       Top = 118
-      Width = 707
-      Height = 306
+      Width = 717
+      Height = 316
       Margins.Left = 20
       Margins.Right = 20
       Margins.Bottom = 20
@@ -106,23 +111,49 @@ object FrmPrincipal: TFrmPrincipal
       Color = 16053492
       ParentBackground = False
       TabOrder = 1
+      ExplicitWidth = 707
+      ExplicitHeight = 306
       DesignSize = (
-        707
-        306)
+        717
+        316)
       object GridCRUD: TcxGrid
         AlignWithMargins = True
         Left = 16
         Top = 16
-        Width = 681
-        Height = 257
+        Width = 691
+        Height = 267
         Anchors = [akLeft, akTop, akRight, akBottom]
         TabOrder = 0
+        ExplicitWidth = 681
+        ExplicitHeight = 257
         object GridCRUDDBTableView1: TcxGridDBTableView
           Navigator.Buttons.CustomButtons = <>
-          DataController.DataSource = DataSource1
+          DataController.DataSource = DataSourceProdutos
           DataController.Summary.DefaultGroupSummaryItems = <>
           DataController.Summary.FooterSummaryItems = <>
           DataController.Summary.SummaryGroups = <>
+          object GirdColunaID: TcxGridDBColumn
+            DataBinding.FieldName = 'ID'
+          end
+          object GridColunaNomeProduto: TcxGridDBColumn
+            DataBinding.FieldName = 'Nome_Produto'
+          end
+          object GridColunaQuantidadeEstoque: TcxGridDBColumn
+            DataBinding.FieldName = 'Quantidade_Estoque'
+          end
+          object GridColunaValorUnitario: TcxGridDBColumn
+            DataBinding.FieldName = 'Valor_Unitario'
+          end
+          object GridColunaIDFornecedor: TcxGridDBColumn
+            DataBinding.FieldName = 'ID_Fornecedor'
+          end
+          object GridColunaNomeFornecedor: TcxGridDBColumn
+            DataBinding.FieldName = 'Nome_Fornecedor'
+          end
+          object GridColunaContatoFornecedor: TcxGridDBColumn
+            Caption = 'Contato_Fornecedor'
+            DataBinding.FieldName = 'Contato'
+          end
         end
         object GridCRUDLevel1: TcxGridLevel
           GridView = GridCRUDDBTableView1
@@ -516,19 +547,30 @@ object FrmPrincipal: TFrmPrincipal
           3D2232222F3E0D0A093C2F673E0D0A3C2F7376673E0D0A}
       end>
   end
-  object DataSource1: TDataSource
-    OnDataChange = DataSource1DataChange
-    Left = 141
-    Top = 190
+  object DataSourceProdutos: TDataSource
+    DataSet = FDQueryProdutos
+    Left = 349
+    Top = 214
   end
-  object FDQuery1: TFDQuery
-    Left = 413
-    Top = 190
+  object FDQueryProdutos: TFDQuery
+    Connection = FDConProdutos
+    SQL.Strings = (
+      'SELECT * FROM produto, fornecedor ')
+    Left = 461
+    Top = 206
   end
-  object FDConnection1: TFDConnection
+  object SQLDriverProdutos: TFDPhysMySQLDriverLink
+    VendorLib = 'c:\xampp\mysql\libmysql.dll'
+    Left = 617
+    Top = 230
+  end
+  object FDConProdutos: TFDConnection
     Params.Strings = (
+      'Database=crud_teste'
+      'User_Name=root'
       'DriverID=MySQL')
-    Left = 597
+    Connected = True
+    Left = 613
     Top = 190
   end
 end

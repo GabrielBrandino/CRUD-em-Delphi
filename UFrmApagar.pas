@@ -21,7 +21,11 @@ uses
   dxSkinsDefaultPainters, dxSkinValentine, dxSkinVisualStudio2013Blue,
   dxSkinVisualStudio2013Dark, dxSkinVisualStudio2013Light, dxSkinVS2010,
   dxSkinWhiteprint, dxSkinXmas2008Blue, cxButtons, System.ImageList,
-  Vcl.ImgList, cxImageList;
+  Vcl.ImgList, cxImageList, cxControls, cxContainer, cxEdit, cxTextEdit,
+  cxDBEdit, FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
+  FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
+  FireDAC.Stan.Async, FireDAC.DApt, Data.DB, FireDAC.Comp.DataSet,
+  FireDAC.Comp.Client;
 
 type
   TFrmApagar = class(TForm)
@@ -29,11 +33,15 @@ type
     Panel2: TPanel;
     Panel3: TPanel;
     Label1: TLabel;
-    Edit1: TEdit;
     BtnConfirmar: TcxButton;
     BtnCancelar: TcxButton;
     Label2: TLabel;
     cxImageList1: TcxImageList;
+    Edit1: TcxDBTextEdit;
+    FDQueryProdutos: TFDQuery;
+    FDQueryFornecedor: TFDQuery;
+    DSFornecedor: TDataSource;
+    DSProdutos: TDataSource;
   private
     { Private declarations }
   public

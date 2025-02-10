@@ -29,7 +29,8 @@ uses
   FireDAC.Comp.DataSet, FireDAC.Comp.Client, cxGridLevel, cxClasses,
   cxGridCustomView, cxGridCustomTableView, cxGridTableView, cxGridDBTableView,
   cxGrid, Vcl.ExtCtrls, System.ImageList, Vcl.ImgList, cxImageList,
-  FireDAC.Phys.MySQL, FireDAC.Phys.MySQLDef;
+  FireDAC.Phys.MySQL, FireDAC.Phys.MySQLDef, FireDAC.Phys.MSAccDef,
+  FireDAC.Phys.ODBCBase, FireDAC.Phys.MSAcc, cxContainer, cxTextEdit, cxDBEdit;
 
 type
   TFrmPrincipal = class(TForm)
@@ -43,15 +44,23 @@ type
     GridCRUDDBTableView1: TcxGridDBTableView;
     GridCRUDLevel1: TcxGridLevel;
     GridCRUD: TcxGrid;
-    DataSource1: TDataSource;
-    FDQuery1: TFDQuery;
-    FDConnection1: TFDConnection;
-    Edit2: TEdit;
+    DataSourceProdutos: TDataSource;
+    FDQueryProdutos: TFDQuery;
     Label1: TLabel;
+    SQLDriverProdutos: TFDPhysMySQLDriverLink;
+    FDConProdutos: TFDConnection;
+    GirdColunaID: TcxGridDBColumn;
+    GridColunaNomeProduto: TcxGridDBColumn;
+    GridColunaQuantidadeEstoque: TcxGridDBColumn;
+    GridColunaValorUnitario: TcxGridDBColumn;
+    GridColunaIDFornecedor: TcxGridDBColumn;
+    GridColunaNomeFornecedor: TcxGridDBColumn;
+    GridColunaContatoFornecedor: TcxGridDBColumn;
+    Edit2: TcxDBTextEdit;
     procedure BtnNovoClick(Sender: TObject);
     procedure BtnApagarClick(Sender: TObject);
     procedure BtnUpdateClick(Sender: TObject);
-    procedure DataSource1DataChange(Sender: TObject; Field: TField);
+
 
   private
     { Private declarations }

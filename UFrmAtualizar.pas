@@ -21,23 +21,29 @@ uses
   dxSkinsDefaultPainters, dxSkinValentine, dxSkinVisualStudio2013Blue,
   dxSkinVisualStudio2013Dark, dxSkinVisualStudio2013Light, dxSkinVS2010,
   dxSkinWhiteprint, dxSkinXmas2008Blue, cxButtons, System.ImageList,
-  Vcl.ImgList, cxImageList;
+  Vcl.ImgList, cxImageList, cxControls, cxContainer, cxEdit, cxCurrencyEdit,
+  cxDBEdit, cxTextEdit, FireDAC.Stan.Intf, FireDAC.Stan.Option,
+  FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf,
+  FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt, Data.DB,
+  FireDAC.Comp.DataSet, FireDAC.Comp.Client;
 
 type
   TFrmAtualizar = class(TForm)
     Label1: TLabel;
     Label2: TLabel;
-    Edit1: TEdit;
     TPanel2: TPanel;
     TPanel1: TPanel;
     TPanelPrincipal: TPanel;
-    Edit2: TEdit;
-    Edit3: TEdit;
     Label3: TLabel;
     Label4: TLabel;
     BtnConfirmar: TcxButton;
     BtnCancelar: TcxButton;
     cxImageList1: TcxImageList;
+    Edit1: TcxDBTextEdit;
+    Edit3: TcxDBTextEdit;
+    Edit2: TcxDBCurrencyEdit;
+    FDQueryProdutos: TFDQuery;
+    DSProdutos: TDataSource;
 
   private
     { Private declarations }
