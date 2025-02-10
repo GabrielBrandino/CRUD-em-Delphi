@@ -4,9 +4,10 @@ uses
   Vcl.Forms,
   UFrmPrincipal in 'UFrmPrincipal.pas' {FrmPrincipal},
   UFrmNovo in 'UFrmNovo.pas' {TFrmNovo},
-  UFrmApagar in 'UFrmApagar.pas' {TFrmApagar}
+  UFrmApagar in 'UFrmApagar.pas' {TFrmApagar},
+  UFrmAtualizar in 'UFrmAtualizar.pas' {FrmAtualizar}
 
-{$R *.res};
+    {$R *.res};
 
 begin
   Application.Initialize;

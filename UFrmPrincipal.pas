@@ -49,6 +49,7 @@ type
     Label1: TLabel;
     procedure BtnNovoClick(Sender: TObject);
     procedure BtnApagarClick(Sender: TObject);
+    procedure BtnUpdateClick(Sender: TObject);
 
   private
     { Private declarations }
@@ -63,7 +64,7 @@ implementation
 
 {$R *.dfm}
 
-uses UFrmNovo, UFrmApagar;
+uses UFrmNovo, UFrmApagar, UFrmAtualizar;
 
 procedure TFrmPrincipal.BtnApagarClick(Sender: TObject);
 begin
@@ -75,6 +76,12 @@ procedure TFrmPrincipal.BtnNovoClick(Sender: TObject);
 begin
   Application.CreateForm(TFrmNovo, FrmNovo);
   FrmNovo.Show;
+end;
+
+procedure TFrmPrincipal.BtnUpdateClick(Sender: TObject);
+begin
+  Application.CreateForm(TFrmAtualizar, FrmAtualizar);
+  FrmAtualizar.Show;
 end;
 
 end.

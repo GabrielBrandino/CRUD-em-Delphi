@@ -81,6 +81,7 @@ object FrmPrincipal: TFrmPrincipal
         OptionsImage.ImageIndex = 2
         OptionsImage.Images = ImgPrincipal
         TabOrder = 2
+        OnClick = BtnUpdateClick
       end
       object Edit2: TEdit
         Left = 568
