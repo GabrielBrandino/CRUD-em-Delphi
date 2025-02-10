@@ -28,7 +28,8 @@ uses
   FireDAC.Stan.Param, FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.DApt,
   FireDAC.Comp.DataSet, FireDAC.Comp.Client, cxGridLevel, cxClasses,
   cxGridCustomView, cxGridCustomTableView, cxGridTableView, cxGridDBTableView,
-  cxGrid, Vcl.ExtCtrls, System.ImageList, Vcl.ImgList, cxImageList;
+  cxGrid, Vcl.ExtCtrls, System.ImageList, Vcl.ImgList, cxImageList,
+  FireDAC.Phys.MySQL, FireDAC.Phys.MySQLDef;
 
 type
   TFrmPrincipal = class(TForm)
@@ -50,6 +51,7 @@ type
     procedure BtnNovoClick(Sender: TObject);
     procedure BtnApagarClick(Sender: TObject);
     procedure BtnUpdateClick(Sender: TObject);
+    procedure DataSource1DataChange(Sender: TObject; Field: TField);
 
   private
     { Private declarations }

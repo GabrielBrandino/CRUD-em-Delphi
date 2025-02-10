@@ -517,14 +517,17 @@ object FrmPrincipal: TFrmPrincipal
       end>
   end
   object DataSource1: TDataSource
-    Left = 149
-    Top = 174
+    OnDataChange = DataSource1DataChange
+    Left = 141
+    Top = 190
   end
   object FDQuery1: TFDQuery
     Left = 413
     Top = 190
   end
   object FDConnection1: TFDConnection
+    Params.Strings = (
+      'DriverID=MySQL')
     Left = 597
     Top = 190
   end
