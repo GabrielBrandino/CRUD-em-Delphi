@@ -22,8 +22,6 @@ object FrmNovo: TFrmNovo
     Color = 3969340
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 402
-    ExplicitHeight = 320
     object TPanel
       AlignWithMargins = True
       Left = 21
@@ -43,137 +41,120 @@ object FrmNovo: TFrmNovo
         284)
       object Label2: TLabel
         Left = 15
-        Top = 14
+        Top = 32
         Width = 89
         Height = 13
         Anchors = []
         Caption = 'C'#243'digo do produto'
-        ExplicitLeft = 8
-        ExplicitTop = 11
       end
       object Label3: TLabel
-        Left = 15
-        Top = 70
+        Left = 151
+        Top = 78
         Width = 82
         Height = 13
         Anchors = []
         Caption = 'ID do fornecedor'
-        ExplicitLeft = 8
-        ExplicitTop = 59
       end
       object Label4: TLabel
-        Left = 132
-        Top = 70
+        Left = 275
+        Top = 78
         Width = 98
         Height = 13
         Anchors = []
         Caption = 'Nome do fornecedor'
-        ExplicitLeft = 111
-        ExplicitTop = 59
       end
       object Label5: TLabel
-        Left = 132
-        Top = 14
+        Left = 142
+        Top = 32
         Width = 91
         Height = 16
         Anchors = []
         AutoSize = False
         Caption = 'Nome do produto'
-        ExplicitLeft = 110
-        ExplicitTop = 10
       end
       object Label6: TLabel
         Left = 297
-        Top = 14
+        Top = 32
         Width = 63
         Height = 13
         Anchors = []
         Caption = 'Valor unit'#225'rio'
-        ExplicitLeft = 258
-        ExplicitTop = 11
       end
       object Label7: TLabel
-        Left = 18
-        Top = 129
+        Left = 15
+        Top = 78
         Width = 115
         Height = 13
         Anchors = []
         Caption = 'Quantidade em estoque'
-        ExplicitLeft = 9
-        ExplicitTop = 109
+      end
+      object Label8: TLabel
+        Left = 15
+        Top = 125
+        Width = 110
+        Height = 13
+        Caption = 'Contato do fornecedor'
       end
       object Edit1: TEdit
         AlignWithMargins = True
         Left = 15
-        Top = 35
+        Top = 51
         Width = 97
         Height = 21
         Anchors = []
         AutoSelect = False
         TabOrder = 0
         Text = 'Edit1'
-        ExplicitLeft = 8
-        ExplicitTop = 28
       end
       object Edit2: TEdit
         AlignWithMargins = True
-        Left = 134
-        Top = 35
+        Left = 132
+        Top = 51
         Width = 123
         Height = 21
         Anchors = []
         TabOrder = 1
         Text = 'Edit2'
-        ExplicitLeft = 111
-        ExplicitTop = 28
       end
       object Edit3: TEdit
         AlignWithMargins = True
-        Left = 15
-        Top = 97
+        Left = 290
+        Top = 51
         Width = 83
         Height = 21
         Anchors = []
         TabOrder = 2
         Text = 'Edit3'
-        ExplicitLeft = 8
-        ExplicitTop = 81
       end
       object Edit4: TEdit
         AlignWithMargins = True
-        Left = 297
-        Top = 35
-        Width = 76
+        Left = 15
+        Top = 97
+        Width = 97
         Height = 21
         Anchors = []
         TabOrder = 3
         Text = 'Edit4'
-        ExplicitLeft = 258
-        ExplicitTop = 28
       end
       object Edit5: TEdit
         AlignWithMargins = True
-        Left = 134
-        Top = 94
-        Width = 123
+        Left = 151
+        Top = 97
+        Width = 85
         Height = 21
         Anchors = []
         TabOrder = 4
         Text = 'Edit5'
-        ExplicitLeft = 111
-        ExplicitTop = 79
       end
       object Edit6: TEdit
         AlignWithMargins = True
-        Left = 18
-        Top = 155
-        Width = 110
+        Left = 275
+        Top = 97
+        Width = 98
         Height = 21
         Anchors = []
         TabOrder = 5
         Text = 'Edit6'
-        ExplicitLeft = 9
-        ExplicitTop = 131
       end
       object BtnCadastrar: TcxButton
         Left = 50
@@ -194,6 +175,14 @@ object FrmNovo: TFrmNovo
         OptionsImage.ImageIndex = 1
         OptionsImage.Images = ImgNovo
         TabOrder = 7
+      end
+      object Edit7: TEdit
+        Left = 15
+        Top = 144
+        Width = 121
+        Height = 21
+        TabOrder = 8
+        Text = 'Edit7'
       end
     end
     object PnlInfoLogin: TPanel
@@ -217,7 +206,6 @@ object FrmNovo: TFrmNovo
       ParentBackground = False
       ParentFont = False
       TabOrder = 1
-      ExplicitWidth = 360
       object Label1: TLabel
         Left = 1
         Top = 1
@@ -243,8 +231,8 @@ object FrmNovo: TFrmNovo
   object ImgNovo: TcxImageList
     SourceDPI = 96
     FormatVersion = 1
-    Left = 357
-    Top = 161
+    Left = 373
+    Top = 273
     Bitmap = {
       494C010102000800040010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
@@ -384,7 +372,7 @@ object FrmNovo: TFrmNovo
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       000000000000}
-    DesignInfo = 10551653
+    DesignInfo = 17891701
     ImageInfo = <
       item
         ImageClass = 'TdxSmartImage'

@@ -43,6 +43,8 @@ type
     BtnCadastrar: TcxButton;
     BtnCancelar: TcxButton;
     ImgNovo: TcxImageList;
+    Edit7: TEdit;
+    Label8: TLabel;
   private
     { Private declarations }
   public
