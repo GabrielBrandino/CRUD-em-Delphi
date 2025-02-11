@@ -25,7 +25,7 @@ uses
   cxDBEdit, FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
   FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
   FireDAC.Stan.Async, FireDAC.DApt, Data.DB, FireDAC.Comp.DataSet,
-  FireDAC.Comp.Client;
+  FireDAC.Comp.Client, Vcl.DBCtrls, Vcl.Mask, cxCurrencyEdit;
 
 type
   TFrmApagar = class(TForm)
@@ -37,11 +37,12 @@ type
     BtnCancelar: TcxButton;
     Label2: TLabel;
     cxImageList1: TcxImageList;
-    Edit1: TcxDBTextEdit;
     FDQueryProdutos: TFDQuery;
-    FDQueryFornecedor: TFDQuery;
-    DSFornecedor: TDataSource;
     DSProdutos: TDataSource;
+    Edit1: TEdit;
+    procedure BtnCancelarClick(Sender: TObject);
+    procedure BtnConfirmarClick(Sender: TObject);
+
   private
     { Private declarations }
   public
@@ -55,4 +56,24 @@ implementation
 
 {$R *.dfm}
 
+procedure TFrmApagar.BtnCancelarClick(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure TFrmApagar.BtnConfirmarClick(Sender: TObject);
+begin
+  try
+    FDQueryProdutos.ParamByName('PID').AsInteger := StrToInt(Edit1.Text);
+    FDQueryProdutos.Open;
+    FDQueryProdutos.Delete;
+    ShowMessage('Produto apagado com sucesso!');
+    Close;
+  except
+    on E:Exception do
+      ShowMessage('Produto não encontrado');
+  end;
+end;
+
 end.
+

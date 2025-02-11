@@ -1,4 +1,4 @@
-unit UFrmAtualizar;
+﻿unit UFrmAtualizar;
 
 interface
 
@@ -39,11 +39,15 @@ type
     BtnConfirmar: TcxButton;
     BtnCancelar: TcxButton;
     cxImageList1: TcxImageList;
-    Edit1: TcxDBTextEdit;
     Edit3: TcxDBTextEdit;
     Edit2: TcxDBCurrencyEdit;
     FDQueryProdutos: TFDQuery;
     DSProdutos: TDataSource;
+    Edit1: TEdit;
+    BtnPesquisar: TcxButton;
+    procedure BtnCancelarClick(Sender: TObject);
+    procedure Click(Sender: TObject);
+    procedure BtnConfirmarClick(Sender: TObject);
 
   private
     { Private declarations }
@@ -57,5 +61,33 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TFrmAtualizar.BtnCancelarClick(Sender: TObject);
+begin
+  Close;
+end;
+
+
+procedure TFrmAtualizar.BtnConfirmarClick(Sender: TObject);
+begin
+    FDQueryProdutos.Post;
+    ShowMessage('Produto atualizado com sucesso!');
+    Close;
+end;
+
+procedure TFrmAtualizar.Click(Sender: TObject);
+begin
+  try
+    FDQueryProdutos.ParamByName('PID').AsInteger := StrToInt(Edit1.Text);
+    FDQueryProdutos.Open;
+    FDQueryProdutos.Edit;
+    Edit2.Enabled := True;
+    Edit3.Enabled := True;
+    ShowMessage('Produto encontrado');
+  except
+    on E:Exception do
+      ShowMessage('Produto não encontrado');
+  end;
+end;
 
 end.

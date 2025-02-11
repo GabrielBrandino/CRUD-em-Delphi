@@ -13,6 +13,7 @@ object FrmNovo: TFrmNovo
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object PnlNovo: TPanel
@@ -24,8 +25,6 @@ object FrmNovo: TFrmNovo
     Color = 3969340
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 450
-    ExplicitHeight = 362
     object TPanel
       AlignWithMargins = True
       Left = 21
@@ -36,82 +35,47 @@ object FrmNovo: TFrmNovo
       Margins.Right = 20
       Margins.Bottom = 20
       Align = alClient
-      BorderStyle = bsSingle
+      BevelOuter = bvNone
       Color = 16053492
       ParentBackground = False
       TabOrder = 0
-      ExplicitWidth = 424
-      ExplicitHeight = 323
+      ExplicitLeft = 20
+      ExplicitTop = 54
       DesignSize = (
-        414
-        290)
+        418
+        294)
       object Label2: TLabel
-        Left = 16
-        Top = 33
+        Left = 57
+        Top = 34
         Width = 89
         Height = 13
         Anchors = []
         Caption = 'C'#243'digo do produto'
-        ExplicitLeft = 15
-        ExplicitTop = 32
-      end
-      object Label3: TLabel
-        Left = 154
-        Top = 79
-        Width = 82
-        Height = 13
-        Anchors = []
-        Caption = 'ID do fornecedor'
-        ExplicitLeft = 151
-        ExplicitTop = 78
-      end
-      object Label4: TLabel
-        Left = 287
-        Top = 79
-        Width = 98
-        Height = 13
-        Anchors = []
-        Caption = 'Nome do fornecedor'
-        ExplicitLeft = 282
-        ExplicitTop = 78
       end
       object Label5: TLabel
-        Left = 145
-        Top = 33
+        Left = 269
+        Top = 34
         Width = 91
         Height = 16
         Anchors = []
         AutoSize = False
         Caption = 'Nome do produto'
-        ExplicitLeft = 142
-        ExplicitTop = 32
       end
       object Label6: TLabel
-        Left = 286
-        Top = 33
+        Left = 289
+        Top = 118
         Width = 63
         Height = 13
         Anchors = []
         Caption = 'Valor unit'#225'rio'
-        ExplicitLeft = 282
-        ExplicitTop = 32
       end
       object Label7: TLabel
-        Left = 16
-        Top = 79
+        Left = 49
+        Top = 118
         Width = 115
         Height = 13
         Anchors = []
         Caption = 'Quantidade em estoque'
-        ExplicitLeft = 15
-        ExplicitTop = 78
-      end
-      object Label8: TLabel
-        Left = 15
-        Top = 138
-        Width = 110
-        Height = 13
-        Caption = 'Contato do fornecedor'
       end
       object BtnCadastrar: TcxButton
         Left = 90
@@ -121,7 +85,8 @@ object FrmNovo: TFrmNovo
         Caption = 'Cadastrar'
         OptionsImage.ImageIndex = 0
         OptionsImage.Images = ImgNovo
-        TabOrder = 6
+        TabOrder = 4
+        OnClick = BtnCadastrarClick
       end
       object BtnCancelar: TcxButton
         Left = 232
@@ -131,74 +96,48 @@ object FrmNovo: TFrmNovo
         Caption = 'Cancelar'
         OptionsImage.ImageIndex = 1
         OptionsImage.Images = ImgNovo
-        TabOrder = 7
+        TabOrder = 5
+        OnClick = BtnCancelarClick
       end
       object Edit1: TcxDBTextEdit
         AlignWithMargins = True
-        Left = 16
+        Left = 49
         Top = 53
         Anchors = []
+        DataBinding.DataField = 'ID'
         DataBinding.DataSource = DSProdutos
         TabOrder = 0
-        ExplicitLeft = 17
-        ExplicitTop = 59
         Width = 97
       end
       object Edit2: TcxDBTextEdit
         AlignWithMargins = True
-        Left = 145
+        Left = 249
         Top = 53
         Anchors = []
+        DataBinding.DataField = 'Nome_Produto'
+        DataBinding.DataSource = DSProdutos
         TabOrder = 1
-        ExplicitLeft = 148
-        ExplicitTop = 59
         Width = 123
       end
       object Edit4: TcxDBTextEdit
         AlignWithMargins = True
-        Left = 16
-        Top = 99
+        Left = 31
+        Top = 137
         Anchors = []
+        DataBinding.DataField = 'Quantidade_Estoque'
+        DataBinding.DataSource = DSProdutos
         TabOrder = 3
-        ExplicitLeft = 17
-        ExplicitTop = 110
-        Width = 97
-      end
-      object Edit5: TcxDBTextEdit
-        AlignWithMargins = True
-        Left = 154
-        Top = 99
-        Anchors = []
-        TabOrder = 4
-        ExplicitLeft = 157
-        ExplicitTop = 110
-        Width = 85
-      end
-      object Edit6: TcxDBTextEdit
-        AlignWithMargins = True
-        Left = 287
-        Top = 99
-        Anchors = []
-        TabOrder = 5
-        ExplicitLeft = 292
-        ExplicitTop = 110
-        Width = 98
-      end
-      object Edit7: TcxDBTextEdit
-        Left = 15
-        Top = 157
-        TabOrder = 8
-        Width = 121
+        Width = 146
       end
       object Edit3: TcxDBCurrencyEdit
         AlignWithMargins = True
-        Left = 287
-        Top = 53
+        Left = 269
+        Top = 137
         Anchors = []
+        DataBinding.DataField = 'Valor_Unitario'
+        DataBinding.DataSource = DSProdutos
         TabOrder = 2
-        ExplicitLeft = 292
-        ExplicitTop = 59
-        Width = 83
+        Width = 95
       end
     end
     object PnlInfoLogin: TPanel
@@ -222,7 +161,6 @@ object FrmNovo: TFrmNovo
       ParentBackground = False
       ParentFont = False
       TabOrder = 1
-      ExplicitWidth = 408
       object Label1: TLabel
         Left = 1
         Top = 1
@@ -439,19 +377,15 @@ object FrmNovo: TFrmNovo
       end>
   end
   object FDQueryProdutos: TFDQuery
-    Left = 349
-    Top = 185
-  end
-  object FDQueryFornecedor: TFDQuery
-    Left = 349
-    Top = 233
+    Connection = FrmPrincipal.FDConProdutos
+    SQL.Strings = (
+      'SELECT * FROM produto WHERE ID IS NULL')
+    Left = 205
+    Top = 281
   end
   object DSProdutos: TDataSource
-    Left = 269
-    Top = 193
-  end
-  object DSFornecedor: TDataSource
-    Left = 269
-    Top = 241
+    DataSet = FDQueryProdutos
+    Left = 53
+    Top = 281
   end
 end

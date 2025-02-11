@@ -94,7 +94,8 @@ object FrmApagar: TFrmApagar
         Caption = 'Confirmar'
         OptionsImage.ImageIndex = 0
         OptionsImage.Images = cxImageList1
-        TabOrder = 1
+        TabOrder = 0
+        OnClick = BtnConfirmarClick
       end
       object BtnCancelar: TcxButton
         Left = 256
@@ -104,13 +105,15 @@ object FrmApagar: TFrmApagar
         Caption = 'Cancelar'
         OptionsImage.ImageIndex = 1
         OptionsImage.Images = cxImageList1
-        TabOrder = 2
+        TabOrder = 1
+        OnClick = BtnCancelarClick
       end
-      object Edit1: TcxDBTextEdit
-        Left = 144
-        Top = 88
-        TabOrder = 0
-        Width = 137
+      object Edit1: TEdit
+        Left = 152
+        Top = 105
+        Width = 121
+        Height = 21
+        TabOrder = 2
       end
     end
   end
@@ -307,19 +310,22 @@ object FrmApagar: TFrmApagar
       end>
   end
   object FDQueryProdutos: TFDQuery
-    Left = 373
-    Top = 227
-  end
-  object FDQueryFornecedor: TFDQuery
-    Left = 373
-    Top = 163
-  end
-  object DSFornecedor: TDataSource
-    Left = 69
-    Top = 219
+    Connection = FrmPrincipal.FDConProdutos
+    SQL.Strings = (
+      'SELECT ID FROM produto WHERE ID = :PID')
+    Left = 365
+    Top = 171
+    ParamData = <
+      item
+        Name = 'PID'
+        DataType = ftInteger
+        ParamType = ptInput
+        Value = Null
+      end>
   end
   object DSProdutos: TDataSource
+    DataSet = FDQueryProdutos
     Left = 69
-    Top = 147
+    Top = 163
   end
 end

@@ -33,26 +33,22 @@ type
     PnlInfoLogin: TPanel;
     Label1: TLabel;
     Label2: TLabel;
-    Label3: TLabel;
-    Label4: TLabel;
     Label5: TLabel;
     Label6: TLabel;
     Label7: TLabel;
     BtnCadastrar: TcxButton;
     BtnCancelar: TcxButton;
     ImgNovo: TcxImageList;
-    Label8: TLabel;
     Edit1: TcxDBTextEdit;
     Edit2: TcxDBTextEdit;
     Edit4: TcxDBTextEdit;
-    Edit5: TcxDBTextEdit;
-    Edit6: TcxDBTextEdit;
-    Edit7: TcxDBTextEdit;
     Edit3: TcxDBCurrencyEdit;
     FDQueryProdutos: TFDQuery;
-    FDQueryFornecedor: TFDQuery;
     DSProdutos: TDataSource;
-    DSFornecedor: TDataSource;
+    procedure BtnCancelarClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure BtnCadastrarClick(Sender: TObject);
+
   private
     { Private declarations }
   public
@@ -65,5 +61,28 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TFrmNovo.BtnCadastrarClick(Sender: TObject);
+begin
+  try 
+    FDQueryProdutos.Post;
+    ShowMessage('Produto cadastrado com sucesso!');
+    Close;
+  except
+    on E:Exception do
+      ShowMessage('ID já cadastrado previamente');
+  end;
+end;
+
+procedure TFrmNovo.BtnCancelarClick(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure TFrmNovo.FormCreate(Sender: TObject);
+begin
+  FDQueryProdutos.Open;
+  FDQueryProdutos.Insert;
+end;
 
 end.

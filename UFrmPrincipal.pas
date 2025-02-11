@@ -53,13 +53,14 @@ type
     GridColunaNomeProduto: TcxGridDBColumn;
     GridColunaQuantidadeEstoque: TcxGridDBColumn;
     GridColunaValorUnitario: TcxGridDBColumn;
-    GridColunaIDFornecedor: TcxGridDBColumn;
-    GridColunaNomeFornecedor: TcxGridDBColumn;
-    GridColunaContatoFornecedor: TcxGridDBColumn;
-    Edit2: TcxDBTextEdit;
+    BtnPesquisar: TcxButton;
+    Edit1: TEdit;
     procedure BtnNovoClick(Sender: TObject);
     procedure BtnApagarClick(Sender: TObject);
     procedure BtnUpdateClick(Sender: TObject);
+    procedure FormActivate(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure BtnPesquisarClick(Sender: TObject);
 
 
   private
@@ -89,10 +90,41 @@ begin
   FrmNovo.Show;
 end;
 
+procedure TFrmPrincipal.BtnPesquisarClick(Sender: TObject);
+var
+  CampoProcurado: string;
+begin
+  CampoProcurado := Edit1.Text;
+  if CampoProcurado <> '' then
+  begin
+    FDQueryProdutos.Filter := 'Nome_Produto LIKE ''%' + CampoProcurado + '%''';
+    FDQueryProdutos.Filtered := True;
+  end
+  else
+    ShowMessage('Por favor, insira um nome para buscar.');
+end;
+
 procedure TFrmPrincipal.BtnUpdateClick(Sender: TObject);
 begin
   Application.CreateForm(TFrmAtualizar, FrmAtualizar);
   FrmAtualizar.Show;
+end;
+
+procedure TFrmPrincipal.FormActivate(Sender: TObject);
+begin
+  if FDQueryProdutos.CanRefresh then
+    FDQueryProdutos.Refresh
+  else
+  begin
+    FDQueryProdutos.Close;
+    FDQueryProdutos.Open;
+  end;
+
+end;
+
+procedure TFrmPrincipal.FormCreate(Sender: TObject);
+begin
+  FDQueryProdutos.Open
 end;
 
 end.
