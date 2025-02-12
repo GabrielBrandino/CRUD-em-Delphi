@@ -106,6 +106,7 @@ object FrmPrincipal: TFrmPrincipal
         Top = 42
         Properties.CharCase = ecLowerCase
         TabOrder = 4
+        OnKeyPress = Edit1KeyPress
         Width = 121
       end
     end

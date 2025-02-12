@@ -61,6 +61,7 @@ type
     procedure FormActivate(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure BtnPesquisarClick(Sender: TObject);
+    procedure Edit1KeyPress(Sender: TObject; var Key: Char);
 
 
   private
@@ -109,6 +110,15 @@ procedure TFrmPrincipal.BtnUpdateClick(Sender: TObject);
 begin
   Application.CreateForm(TFrmAtualizar, FrmAtualizar);
   FrmAtualizar.Show;
+end;
+
+procedure TFrmPrincipal.Edit1KeyPress(Sender: TObject; var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    BtnPesquisarClick(Sender);
+    Key := #0;
+  end;
 end;
 
 procedure TFrmPrincipal.FormActivate(Sender: TObject);
