@@ -109,6 +109,12 @@ procedure TFrmAtualizar.Edit1KeyPress(Sender: TObject; var Key: Char);
 begin
   if not (Key in ['0'..'9', #8, #13]) then
     Key := #0;
+
+  if Key = #13 then
+  begin
+    Click(Sender);
+    Key := #0;
+  end;
 end;
 
 end.
