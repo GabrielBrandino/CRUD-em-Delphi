@@ -48,6 +48,7 @@ type
     procedure BtnCancelarClick(Sender: TObject);
     procedure Click(Sender: TObject);
     procedure BtnConfirmarClick(Sender: TObject);
+    procedure Edit1KeyPress(Sender: TObject; var Key: Char);
 
   private
     { Private declarations }
@@ -83,6 +84,9 @@ end;
 procedure TFrmAtualizar.Click(Sender: TObject);
 begin
   try
+    if Edit1.Text = '' then
+      raise Exception.Create('ID faltando');
+
     FDQueryProdutos.Close;
     Edit1.Text := Trim(Edit1.Text);
     FDQueryProdutos.ParamByName('PID2').AsInteger := StrToInt(Edit1.Text);
@@ -99,6 +103,12 @@ begin
     on E:Exception do
       Application.MessageBox(PWideChar(E.Message), 'Erro na pesquisa', MB_ICONINFORMATION);
   end;
+end;
+
+procedure TFrmAtualizar.Edit1KeyPress(Sender: TObject; var Key: Char);
+begin
+  if not (Key in ['0'..'9', #8, #13]) then
+    Key := #0;
 end;
 
 end.

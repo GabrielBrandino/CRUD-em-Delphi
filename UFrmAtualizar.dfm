@@ -149,6 +149,7 @@ object FrmAtualizar: TFrmAtualizar
         Left = 147
         Top = 51
         TabOrder = 5
+        OnKeyPress = Edit1KeyPress
         Width = 121
       end
     end

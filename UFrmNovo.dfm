@@ -116,7 +116,6 @@ object FrmNovo: TFrmNovo
         Anchors = []
         DataBinding.DataField = 'Nome_Produto'
         DataBinding.DataSource = DSProdutos
-        Properties.CharCase = ecLowerCase
         TabOrder = 1
         Width = 123
       end

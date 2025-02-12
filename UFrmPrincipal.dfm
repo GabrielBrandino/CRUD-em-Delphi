@@ -104,7 +104,6 @@ object FrmPrincipal: TFrmPrincipal
       object Edit1: TcxTextEdit
         Left = 504
         Top = 42
-        Properties.CharCase = ecLowerCase
         TabOrder = 4
         OnKeyPress = Edit1KeyPress
         Width = 121

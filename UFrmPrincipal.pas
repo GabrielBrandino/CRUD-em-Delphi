@@ -96,10 +96,11 @@ var
   CampoProcurado: string;
 begin
   Edit1.Text := Trim(Edit1.Text);
+  Edit1.Text := LowerCase(Edit1.Text);
   CampoProcurado := Edit1.Text;
   if CampoProcurado <> '' then
   begin
-    FDQueryProdutos.Filter := 'Nome_Produto LIKE ''%' + CampoProcurado + '%''';
+    FDQueryProdutos.Filter := 'LOWER(Nome_Produto) LIKE ''%' + CampoProcurado + '%''';
     FDQueryProdutos.Filtered := True;
   end
   else
