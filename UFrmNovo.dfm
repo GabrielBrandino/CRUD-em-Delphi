@@ -1,6 +1,7 @@
 object FrmNovo: TFrmNovo
   Left = 0
   Top = 0
+  Anchors = []
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'FrmNovo'
@@ -39,11 +40,12 @@ object FrmNovo: TFrmNovo
       Color = 16053492
       ParentBackground = False
       TabOrder = 0
+      ExplicitLeft = 22
       DesignSize = (
         418
         294)
       object Label2: TLabel
-        Left = 57
+        Left = 49
         Top = 34
         Width = 89
         Height = 13
@@ -51,8 +53,8 @@ object FrmNovo: TFrmNovo
         Caption = 'C'#243'digo do produto'
       end
       object Label5: TLabel
-        Left = 269
-        Top = 34
+        Left = 249
+        Top = 31
         Width = 91
         Height = 16
         Anchors = []
@@ -60,7 +62,7 @@ object FrmNovo: TFrmNovo
         Caption = 'Nome do produto'
       end
       object Label6: TLabel
-        Left = 289
+        Left = 249
         Top = 118
         Width = 63
         Height = 13
@@ -76,7 +78,7 @@ object FrmNovo: TFrmNovo
         Caption = 'Quantidade em estoque'
       end
       object BtnCadastrar: TcxButton
-        Left = 90
+        Left = 89
         Top = 232
         Width = 75
         Height = 25
@@ -87,7 +89,7 @@ object FrmNovo: TFrmNovo
         OnClick = BtnCadastrarClick
       end
       object BtnCancelar: TcxButton
-        Left = 232
+        Left = 249
         Top = 232
         Width = 75
         Height = 25
@@ -105,7 +107,7 @@ object FrmNovo: TFrmNovo
         DataBinding.DataField = 'ID'
         DataBinding.DataSource = DSProdutos
         TabOrder = 0
-        Width = 97
+        Width = 115
       end
       object Edit2: TcxDBTextEdit
         AlignWithMargins = True
@@ -120,23 +122,23 @@ object FrmNovo: TFrmNovo
       end
       object Edit4: TcxDBTextEdit
         AlignWithMargins = True
-        Left = 31
+        Left = 49
         Top = 137
         Anchors = []
         DataBinding.DataField = 'Quantidade_Estoque'
         DataBinding.DataSource = DSProdutos
         TabOrder = 3
-        Width = 146
+        Width = 116
       end
       object Edit3: TcxDBCurrencyEdit
         AlignWithMargins = True
-        Left = 269
+        Left = 249
         Top = 137
         Anchors = []
         DataBinding.DataField = 'Valor_Unitario'
         DataBinding.DataSource = DSProdutos
         TabOrder = 2
-        Width = 95
+        Width = 123
       end
     end
     object PnlInfoLogin: TPanel

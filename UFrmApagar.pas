@@ -64,14 +64,15 @@ end;
 procedure TFrmApagar.BtnConfirmarClick(Sender: TObject);
 begin
   try
+    Edit1.Text := Trim(Edit1.Text);
     FDQueryProdutos.ParamByName('PID').AsInteger := StrToInt(Edit1.Text);
     FDQueryProdutos.Open;
     FDQueryProdutos.Delete;
-    ShowMessage('Produto apagado com sucesso!');
+    Application.MessageBox('Produto apagado com sucesso', 'Apagar produto');
     Close;
   except
     on E:Exception do
-      ShowMessage('Produto não encontrado');
+      Application.MessageBox('Produto não encontrado', 'Erro na pesquisa', MB_ICONINFORMATION);
   end;
 end;
 

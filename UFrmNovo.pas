@@ -67,11 +67,11 @@ begin
   try
     Edit2.Text := Trim(Edit2.Text);
     FDQueryProdutos.Post;
-    ShowMessage('Produto cadastrado com sucesso!');
+    Application.MessageBox('Produto cadastrado com sucesso', 'Novo produto');;
     Close;
   except
     on E:Exception do
-      ShowMessage('Dados inseridos invalidos');
+      Application.MessageBox('Dados inseridos faltando ou invalidos', 'Erro na inserção', MB_ICONINFORMATION);
   end;
 end;
 

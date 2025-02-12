@@ -1,11 +1,14 @@
 object FrmPrincipal: TFrmPrincipal
   Left = 0
   Top = 0
+  Anchors = []
+  BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'Principial -> [FrmPrincipal]'
   ClientHeight = 455
   ClientWidth = 759
   Color = clBtnFace
+  DragMode = dmAutomatic
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11

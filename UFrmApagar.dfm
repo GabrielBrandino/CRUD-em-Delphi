@@ -1,6 +1,8 @@
 object FrmApagar: TFrmApagar
   Left = 0
   Top = 0
+  Anchors = []
+  BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'FrmApagar'
   ClientHeight = 363
