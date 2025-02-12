@@ -1,6 +1,8 @@
 object FrmAtualizar: TFrmAtualizar
   Left = 0
   Top = 0
+  Anchors = []
+  BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'FrmAtualizar'
   ClientHeight = 363
@@ -143,12 +145,11 @@ object FrmAtualizar: TFrmAtualizar
         TabOrder = 4
         OnClick = Click
       end
-      object Edit1: TEdit
+      object Edit1: TcxTextEdit
         Left = 147
         Top = 51
-        Width = 121
-        Height = 21
         TabOrder = 5
+        Width = 121
       end
     end
   end
@@ -373,12 +374,12 @@ object FrmAtualizar: TFrmAtualizar
     Connection = FrmPrincipal.FDConProdutos
     SQL.Strings = (
       'SELECT ID, Valor_Unitario, Quantidade_Estoque'
-      'FROM produto WHERE ID = :pID')
+      'FROM produto WHERE ID = :PID2')
     Left = 85
     Top = 203
     ParamData = <
       item
-        Name = 'PID'
+        Name = 'PID2'
         DataType = ftInteger
         ParamType = ptInput
         Value = Null

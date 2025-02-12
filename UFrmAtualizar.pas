@@ -43,8 +43,8 @@ type
     Edit2: TcxDBCurrencyEdit;
     FDQueryProdutos: TFDQuery;
     DSProdutos: TDataSource;
-    Edit1: TEdit;
     BtnPesquisar: TcxButton;
+    Edit1: TcxTextEdit;
     procedure BtnCancelarClick(Sender: TObject);
     procedure Click(Sender: TObject);
     procedure BtnConfirmarClick(Sender: TObject);
@@ -72,26 +72,32 @@ procedure TFrmAtualizar.BtnConfirmarClick(Sender: TObject);
 begin
   try
     FDQueryProdutos.Post;
-    ShowMessage('Produto atualizado com sucesso!');
+    Application.MessageBox('Produto atualizado com sucesso', 'Atualização completa');
     Close;
   except
     on E:Exception do
-      ShowMessage('Dados inseridos invalidos');
+      Application.MessageBox('Dados inseridos invalidos', 'Erro na atualização', MB_ICONINFORMATION);
   end;
 end;
 
 procedure TFrmAtualizar.Click(Sender: TObject);
 begin
   try
-    FDQueryProdutos.ParamByName('PID').AsInteger := StrToInt(Edit1.Text);
+    FDQueryProdutos.Close;
+    Edit1.Text := Trim(Edit1.Text);
+    FDQueryProdutos.ParamByName('PID2').AsInteger := StrToInt(Edit1.Text);
     FDQueryProdutos.Open;
+
+    if FDQueryProdutos.IsEmpty then
+      raise Exception.Create('Produto não encontrado');
+
     FDQueryProdutos.Edit;
     Edit2.Enabled := True;
     Edit3.Enabled := True;
-    ShowMessage('Produto encontrado');
+    Application.MessageBox('Produto Encontrado', 'Pesquisa completa');
   except
     on E:Exception do
-      ShowMessage('Produto não encontrado');
+      Application.MessageBox(PWideChar(E.Message), 'Erro na pesquisa', MB_ICONINFORMATION);
   end;
 end;
 
