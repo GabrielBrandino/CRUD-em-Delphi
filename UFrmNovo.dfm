@@ -39,8 +39,6 @@ object FrmNovo: TFrmNovo
       Color = 16053492
       ParentBackground = False
       TabOrder = 0
-      ExplicitLeft = 20
-      ExplicitTop = 54
       DesignSize = (
         418
         294)
@@ -116,6 +114,7 @@ object FrmNovo: TFrmNovo
         Anchors = []
         DataBinding.DataField = 'Nome_Produto'
         DataBinding.DataSource = DSProdutos
+        Properties.CharCase = ecLowerCase
         TabOrder = 1
         Width = 123
       end

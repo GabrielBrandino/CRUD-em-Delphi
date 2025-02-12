@@ -70,9 +70,14 @@ end;
 
 procedure TFrmAtualizar.BtnConfirmarClick(Sender: TObject);
 begin
+  try
     FDQueryProdutos.Post;
     ShowMessage('Produto atualizado com sucesso!');
     Close;
+  except
+    on E:Exception do
+      ShowMessage('Dados inseridos invalidos');
+  end;
 end;
 
 procedure TFrmAtualizar.Click(Sender: TObject);

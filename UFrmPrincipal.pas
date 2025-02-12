@@ -54,7 +54,7 @@ type
     GridColunaQuantidadeEstoque: TcxGridDBColumn;
     GridColunaValorUnitario: TcxGridDBColumn;
     BtnPesquisar: TcxButton;
-    Edit1: TEdit;
+    Edit1: TcxTextEdit;
     procedure BtnNovoClick(Sender: TObject);
     procedure BtnApagarClick(Sender: TObject);
     procedure BtnUpdateClick(Sender: TObject);
@@ -94,6 +94,7 @@ procedure TFrmPrincipal.BtnPesquisarClick(Sender: TObject);
 var
   CampoProcurado: string;
 begin
+  Edit1.Text := Trim(Edit1.Text);
   CampoProcurado := Edit1.Text;
   if CampoProcurado <> '' then
   begin
@@ -101,7 +102,7 @@ begin
     FDQueryProdutos.Filtered := True;
   end
   else
-    ShowMessage('Por favor, insira um nome para buscar.');
+    FDQueryProdutos.Filtered := False;
 end;
 
 procedure TFrmPrincipal.BtnUpdateClick(Sender: TObject);

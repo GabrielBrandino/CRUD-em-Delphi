@@ -49,6 +49,7 @@ object FrmPrincipal: TFrmPrincipal
         Width = 83
         Height = 13
         Caption = 'Nome do produto'
+        FocusControl = Edit1
       end
       object BtnNovo: TcxButton
         Left = 40
@@ -97,12 +98,12 @@ object FrmPrincipal: TFrmPrincipal
         TabOrder = 3
         OnClick = BtnPesquisarClick
       end
-      object Edit1: TEdit
+      object Edit1: TcxTextEdit
         Left = 504
         Top = 42
-        Width = 121
-        Height = 21
+        Properties.CharCase = ecLowerCase
         TabOrder = 4
+        Width = 121
       end
     end
     object PnlGrid: TPanel
@@ -129,6 +130,7 @@ object FrmPrincipal: TFrmPrincipal
         Width = 691
         Height = 267
         Anchors = [akLeft, akTop, akRight, akBottom]
+        Enabled = False
         TabOrder = 0
         object GridCRUDDBTableView1: TcxGridDBTableView
           Navigator.Buttons.CustomButtons = <>
@@ -161,8 +163,8 @@ object FrmPrincipal: TFrmPrincipal
   object ImgPrincipal: TcxImageList
     SourceDPI = 96
     FormatVersion = 1
-    Left = 720
-    Top = 225
+    Left = 56
+    Top = 353
     Bitmap = {
       494C010105000800040010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000002000000001002000000000000020
@@ -434,7 +436,7 @@ object FrmPrincipal: TFrmPrincipal
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       000000000000}
-    DesignInfo = 14746320
+    DesignInfo = 23134264
     ImageInfo = <
       item
         ImageClass = 'TdxSmartImage'
@@ -572,8 +574,8 @@ object FrmPrincipal: TFrmPrincipal
     Connection = FDConProdutos
     SQL.Strings = (
       'SELECT * FROM produto ')
-    Left = 525
-    Top = 230
+    Left = 453
+    Top = 254
   end
   object SQLDriverProdutos: TFDPhysMySQLDriverLink
     VendorLib = 'c:\xampp\mysql\libmysql.dll'

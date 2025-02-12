@@ -64,13 +64,14 @@ implementation
 
 procedure TFrmNovo.BtnCadastrarClick(Sender: TObject);
 begin
-  try 
+  try
+    Edit2.Text := Trim(Edit2.Text);
     FDQueryProdutos.Post;
     ShowMessage('Produto cadastrado com sucesso!');
     Close;
   except
     on E:Exception do
-      ShowMessage('ID já cadastrado previamente');
+      ShowMessage('Dados inseridos invalidos');
   end;
 end;
 
