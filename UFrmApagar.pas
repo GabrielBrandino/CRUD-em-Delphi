@@ -64,6 +64,7 @@ end;
 procedure TFrmApagar.BtnConfirmarClick(Sender: TObject);
 begin
   try
+    FDQueryProdutos.Close;
     Edit1.Text := Trim(Edit1.Text);
     FDQueryProdutos.ParamByName('PID').AsInteger := StrToInt(Edit1.Text);
     FDQueryProdutos.Open;
